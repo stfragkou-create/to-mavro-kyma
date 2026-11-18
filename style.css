@@ -1,0 +1,108 @@
+*{box-sizing:border-box}
+:root{--nav:#05283e;--sea:#075b86;--paper:#eef8fd;--gold:#ffdc8d}
+html,body{margin:0;min-height:100%;font-family:Arial,"DejaVu Sans",sans-serif;background:#063650;color:#fff}
+a,button{font:inherit}
+a{color:inherit}
+.topnav{height:68px;display:flex;align-items:center;justify-content:center;gap:clamp(4px,2vw,32px);padding:6px 12px;background:#052840;border-bottom:2px solid #68b6d7;position:sticky;top:0;z-index:100}
+.topnav a{text-decoration:none;font-size:clamp(13px,1.3vw,20px);line-height:1.2;font-weight:700;color:white;border-radius:9px;padding:12px clamp(7px,1.15vw,18px);text-align:center}
+.topnav a:hover,.topnav a:focus-visible{background:#1c6383;outline:2px solid #ffe4a3}
+.topnav a[aria-current="page"]{background:#125276;box-shadow:inset 0 -3px #ffda7b}
+/* Αρχική: σε όλο το ύψος της οθόνης, χωρίς σκρολ */
+.home,body.home-page{height:100vh;height:100dvh;overflow:hidden}
+.home{height:calc(100vh - 68px);height:calc(100dvh - 68px);display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 45% 8%,#267bad 0%,#0a567d 55%,#052e4a 100%)}
+.home:before{content:"";position:absolute;inset:auto 0 0;height:20%;background:linear-gradient(#0b64882a,#022f4a 95%);pointer-events:none}
+.hero-art{width:min(100%,calc((100dvh - 68px)*1670/645));aspect-ratio:1670/645;position:relative;flex:none;box-shadow:0 14px 52px #001b3080;border:0;overflow:hidden}
+.hero-art img{width:100%;height:100%;display:block}
+/* Η παλιά ανορθόγραφη λεζάντα καλύπτεται από καθαρό, επεξεργάσιμο ελληνικό κείμενο. */
+.course-label{position:absolute;left:58.1%;top:57.2%;width:40.7%;height:28.8%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#0b273b;background:linear-gradient(105deg,#d4ebfb 0%,#c4e3f6 52%,#cbe9fc 100%);border-radius:18px;clip-path:polygon(2.5% 6%,94% 0%,99% 8%,98% 86%,92% 99%,5% 96%,0% 75%,1% 16%);box-shadow:0 2px 10px #5d99be44;transform:rotate(-.4deg);font-weight:700;letter-spacing:-.02em;line-height:1.22;font-size:clamp(11px,2.23vw,40px);padding:1.6%}
+.course-label .class{font-size:1.11em;margin-top:.10em;white-space:nowrap}
+/* Άλλες σελίδες */
+.page-main{max-width:1650px;margin:0 auto;padding:20px clamp(12px,2.1vw,30px) 55px}
+.page-title{font-size:clamp(27px,3vw,42px);margin:6px 0 7px}
+.page-sub{margin:0 0 16px;color:#b7e8fa;font-size:18px}
+.explain{background:#e9f6ff;color:#14364c;padding:15px 20px;border-radius:15px;line-height:1.5;font-size:clamp(17px,1.48vw,22px);margin:0 0 16px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.card{border:3px solid #c9e6f6;border-radius:14px;padding:4px;position:relative;background:#fff;cursor:pointer;min-width:0;box-shadow:0 6px 15px #001b3370;touch-action:manipulation}
+.card img{width:100%;display:block;border-radius:9px}
+.card.selected{border-color:#ffc857;box-shadow:0 0 0 5px #ffc857aa}
+.card:focus-visible,.slot:focus-visible,.btn:focus-visible{outline:4px solid var(--gold);outline-offset:2px}
+.card .grab{position:absolute;top:10px;left:10px;color:white;background:#0a3b56;font-size:13px;font-weight:bold;border-radius:30px;padding:5px 8px}
+.slots{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;margin-top:18px}
+.slot{border:2px dashed #acdcef;border-radius:12px;background:#ffffff13;min-height:112px;padding:8px 5px;color:#fff;display:grid;justify-items:center;align-content:start;gap:8px;cursor:pointer;touch-action:manipulation}
+.slot b{background:#dbf4ff;color:#14364d;border-radius:50%;font-size:16px;padding:6px 10px}
+.slot span{font-size:13px;text-align:center}
+.slot img{width:100%;border-radius:6px;max-height:105px;object-fit:cover;object-position:top}
+.slot.filled{background:#fff}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 5px}
+.btn{background:#fff0c8;border:2px solid #d3aa55;border-radius:12px;color:#12354a;font-weight:700;font-size:17px;padding:11px 18px;cursor:pointer;display:inline-block;text-decoration:none}
+.btn.secondary{background:#dff3ff;border-color:#78c1e5}
+.btn:hover{filter:brightness(1.05)}
+.status{min-height:30px;font-weight:700;font-size:21px;margin:13px 0;color:#ffe2a9}
+.helper{color:#c4e2f2;font-size:15px}
+.pdf-panel{max-width:1100px;margin:auto}
+.pdf-panel p{font-size:19px;line-height:1.5}
+.pdf-panel iframe{display:block;width:100%;height:calc(100vh - 260px);min-height:470px;background:white;border:0;border-radius:14px;margin-top:18px}
+.discussion{max-width:1000px;margin:27px auto;padding:30px clamp(22px,4vw,54px);background:#effaff;color:#12364b;border-radius:19px}
+.discussion h2{font-size:30px}.discussion p{font-size:23px;line-height:1.55;margin:24px 0}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.slots{grid-template-columns:repeat(4,minmax(0,1fr))}.slot{min-height:95px}.topnav{gap:4px}.topnav a{font-size:13px;padding:9px 8px}}
+@media(max-width:600px){.topnav{height:64px;padding:5px 3px}.topnav a{font-size:11px;line-height:1.15;padding:9px 4px}.home{height:calc(100dvh - 64px)}.hero-art{width:min(100%,calc((100dvh - 64px)*1670/645))}.course-label{border-radius:6px}.page-main{padding:13px}.cards{gap:8px}.card{padding:2px}.slots{gap:6px}.slot span{font-size:11px}.discussion p{font-size:18px}}
+
+/* Το εγκεκριμένο δίσελιδο φύλλο, ως καθαρή ιστοσελίδα: χωρίς προβολέα PDF. */
+.worksheet-main{max-width:1000px;margin:0 auto;padding:18px 12px 45px;color:#203843}
+.worksheet-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:white;font-size:18px;margin:2px 3px 15px;font-weight:700}
+.worksheet-actions{display:flex;gap:10px;flex-wrap:wrap}
+.worksheet-actions .btn{padding:9px 14px;font-size:16px}
+.worksheet-page{--heading:#173a4b;--teal:#06868b;--pale:#e8f5f3;position:relative;width:210mm;height:297mm;margin:0 auto 22px;background:#fff;color:#293b46;box-shadow:0 8px 28px #001a2f6b;display:flex;flex-direction:column;overflow:hidden;font-size:12pt;line-height:1.4}
+.sheet-head{flex:none;background:#173a4b;color:#fff;height:45mm;padding:8mm 12mm;display:flex;align-items:flex-start;justify-content:space-between}
+.sheet-head h1{font-size:23pt;letter-spacing:.01em;line-height:1.2;margin:0 0 4mm;font-weight:800}
+.sheet-head p{font-size:12pt;line-height:1.4;margin:0 0 1.7mm;font-weight:400;color:#ecf6fa}
+.sheet-hour{display:grid;place-items:center;width:19mm;height:19mm;background:#06868b;font-size:21pt;font-weight:800}
+.sheet-body{flex:1;padding:8mm 12mm 4mm;display:flex;flex-direction:column;gap:4.6mm;min-height:0}
+.sheet-body .student-line{font-size:11.6pt;display:flex;align-items:baseline;gap:2.1mm;white-space:nowrap;margin-bottom:2mm}
+.blank{display:inline-block;border-bottom:1px solid #637e8a;min-height:4mm;vertical-align:bottom}
+.sheet-exercise{margin:0}
+.sheet-exercise h2{display:flex;align-items:center;gap:4.3mm;font-size:16pt;color:#173a4b;font-weight:800;line-height:1.3;margin:0 0 4mm}
+.sheet-exercise h2 span{background:#06868b;color:white;font-size:13.6pt;font-weight:800;min-width:13mm;height:12mm;border-radius:3mm;display:grid;place-items:center}
+.sheet-exercise p{margin:0 0 3.7mm;font-size:11.8pt}
+.ordered-items{display:flex;flex-direction:column;gap:3.6mm}
+.ordered-items>div{display:flex;gap:4.5mm;align-items:center;min-height:9mm;font-size:11.5pt}
+.empty-box{display:block;flex:none;width:8mm;height:8mm;border:1px solid #85b6bb;border-radius:2mm}
+.question{margin:2mm 0 4mm;font-size:11.7pt}
+.question strong{font-weight:800}
+.choices{margin:3mm 0 0 3mm;display:flex;flex-direction:column;gap:2.3mm;font-size:11.2pt}
+.sheet-note{background:#e8f5f3;border-radius:3.8mm;padding:4.2mm 5mm;font-size:11.7pt;margin-top:auto}
+.sheet-note>strong{color:#07858a;font-weight:800;font-size:11.6pt}
+.sheet-note p{margin:2.2mm 0 0}
+.sheet-footer{height:15mm;margin:0 12mm;padding-top:2.3mm;display:flex;justify-content:space-between;align-items:flex-start;border-top:1px solid #b2c5c9;color:#07858a;font-weight:800;font-size:10pt}
+.sheet-footer>span:last-child{color:#234353}
+.page-two{gap:6mm;padding-top:4mm}
+.emotions{margin:3mm 0 4mm;padding:2.7mm 4mm;font-weight:800;color:#173a4b}
+.emotion-answer{margin:3mm 0 5mm;font-size:11.5pt}
+.answer-line{height:10mm;border-bottom:1px solid #b2c5c9;width:100%}
+.page-two .sheet-exercise h2{margin-bottom:5mm}
+.page-two .sheet-exercise p{margin:0 0 3mm}
+.exit{padding:5mm;margin-top:auto}
+.exit .answer-line{height:9mm}
+@media(max-width:880px){.worksheet-page{width:100%;height:auto;min-height:900px}.sheet-head{height:auto;min-height:165px;padding:25px 30px}.sheet-body{padding:25px 30px 20px}.sheet-footer{margin:0 30px 15px}.worksheet-main{max-width:100%}}
+@media(max-width:550px){.sheet-head h1{font-size:23px}.sheet-head p{font-size:13px}.sheet-hour{width:49px;height:49px;font-size:20px}.sheet-exercise h2{font-size:18px;gap:10px}.sheet-exercise h2 span{font-size:15px;min-width:40px;height:38px}.sheet-body{gap:20px;padding:22px 19px}.sheet-head{padding:22px 19px}.sheet-exercise p,.question,.ordered-items>div,.choices,.student-line{font-size:14px!important}.sheet-body .student-line{white-space:normal;flex-wrap:wrap}.sheet-footer{margin:0 20px 12px;font-size:11px}.sheet-note,.emotion-answer{font-size:14px}.worksheet-main{padding:8px 5px 25px}}
+@media print{
+ @page{size:A4;margin:0}
+ html,body{margin:0;padding:0;background:white!important;color:#293b46!important}
+ .topnav,.worksheet-controls{display:none!important}
+ .worksheet-main{margin:0;padding:0;max-width:none;width:100%}
+ .worksheet-page{width:210mm!important;height:297mm!important;min-height:0!important;margin:0!important;box-shadow:none!important;border:0!important;break-after:page;page-break-after:always;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .worksheet-page:last-child{break-after:auto;page-break-after:auto}
+ .sheet-head{height:45mm!important;padding:8mm 12mm!important}
+ .sheet-body{padding:8mm 12mm 4mm!important;gap:4.6mm!important}
+ .sheet-body.page-two{padding-top:4mm!important;gap:6mm!important}
+ .sheet-footer{margin:0 12mm!important}
+}
+
+/* Εξασφάλιση καθαρού κενού πριν από το υποσέλιδο της δεύτερης σελίδας */
+.page-two{gap:4mm}
+.page-two .sheet-exercise h2{margin-bottom:4mm}
+.page-two .sheet-exercise p{margin-bottom:2mm}
+.page-two .exit{margin-top:2mm;padding:4mm}
+.page-two .exit .answer-line{height:7mm}
+.sheet-footer{flex:none}
+@media print{.sheet-body.page-two{gap:4mm!important}}
